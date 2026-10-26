@@ -14,6 +14,7 @@ Guide d'installation
 Guide d'utilisation
 Dépannage et FAQ
 Avertissement et éthique
+
 ✨ Fonctionnalités clés
 Interception réseau discrète et temps réel : Intercepte les messages WebSocket, les requêtes fetch et XMLHttpRequest afin de capturer les réponses exactes issues des API et des flux GraphQL internes de Busuu.
 Analyse avancée du DOM & Shadow DOM : Détecte les balises et attributs internes (data-qa-pass, data-correct, identifiants d'entités, etc.) et explore récursivement les arbres Shadow DOM.
@@ -35,6 +36,7 @@ Activer sur busuu.com	Interrupteur général	Active ou désactive l'ensemble de 
 Mode semi‑auto (Afficher sans cliquer)	Assistance visuelle	N'effectue aucun clic automatique. Surligne la bonne réponse avec un contour vert et affiche un bandeau d'information. (Incompatible avec le mode délai)
 Mode délai (Attendre 20s avant de cliquer)	Pacing réaliste	Marque une pause de 20 secondes avant de sélectionner la réponse, avec décompte visuel en temps réel (Attente: Xs). Simule un rythme d'apprentissage humain. (Incompatible avec le mode semi-auto)
 Debug (Overlay diagnostics)	Télémétrie développeur	Affiche une bulle de diagnostic en haut à droite avec l'état des WebSockets, les opérations GraphQL interceptées et les réponses capturées.
+
 🎯 Types d'exercices pris en charge
 Type d'exercice	Stratégie de résolution
 Choix multiples (QCM)	Correspondance du texte ou résolution des identifiants backend (entity_...) via le dictionnaire de traduction interne.
@@ -46,6 +48,7 @@ Textes à trous (Gap fill)	Détection des mots manquants dans la phrase et séle
 Saisie au clavier (Typing)	Détection de la solution, focus du champ et simulation d'une frappe clavier authentique avec événements DOM complets (input, change, keydown).
 Verbes à particule (Phrasal verbs)	Clic synchronisé sur le verbe principal et sa particule associée.
 Exercice d'écriture communauté	Bascule en mode rédaction, détection du nombre de mots requis, génération de contenu structuré, saisie automatique et envoi via « Envoyer à la communauté ».
+
 🏗️ Architecture technique
 ├── manifest.json       # Déclaration Manifest V3 (permissions, scripts, correspondances d'URL)
 ├── background.js       # Service worker initialisant les valeurs par défaut dans le stockage
@@ -54,10 +57,12 @@ Exercice d'écriture communauté	Bascule en mode rédaction, détection du nombr
 ├── popup.html          # Interface utilisateur du panneau de contrôle
 ├── popup.js            # Logique du panneau et synchronisation avec chrome.storage.sync
 └── popup.css           # Thème sombre moderne pour le panneau de contrôle
+
 Fonctionnement interne
 inject.js s'exécute dès le chargement (document_start) directement dans le contexte de la page. Il intercepte les flux window.fetch, window.XMLHttpRequest et window.WebSocket. Lorsqu'un payload JSON est détecté, il le transmet au content script via window.postMessage.
 content.js écoute ces messages, explore récursivement les structures de données pour y extraire les réponses (correctAnswer, solution, choices, etc.), alimente un dictionnaire de traduction (str_xxx vers texte clair) et observe les mutations du DOM via un MutationObserver.
 Selon le mode configuré, le moteur résout le composant cible dans le DOM, applique un surlignage visuel ou déclenche un clic synthétique et valide l'exercice pour passer à l'étape suivante.
+
 🚀 Guide d'installation
 Téléchargez ou clonez ce dossier sur votre machine.
 Ouvrez votre navigateur Chromium (ex. Google Chrome, Brave, Microsoft Edge, Opera).
@@ -69,6 +74,7 @@ Activez le Mode développeur (interrupteur en haut à droite).
 Cliquez sur Charger le dossier non empaqueté (ou Load unpacked).
 Sélectionnez le dossier contenant les fichiers de l'extension (busuu extension v 2.2).
 Busuu Helper apparaît désormais dans votre liste. Épinglez-le à votre barre d'outils pour y accéder rapidement.
+
 📖 Guide d'utilisation
 1. Première configuration
 Rendez-vous sur busuu.com
@@ -86,6 +92,7 @@ Progression réaliste : Activez le Mode délai (20s) pour marquer une temporisat
 3. Déroulement des leçons
 Démarrez n'importe quelle leçon ou restez sur le tableau de bord : l'extension prend le relais automatiquement.
 Pour désactiver ou mettre en pause l'extension à tout moment, ouvrez la popup et décochez Activer sur busuu.com.
+
 🛠️ Dépannage et FAQ
 Le statut reste bloqué sur "Inactif"
 Veillez à cocher la case de consentement avant d'activer l'extension. Si la case de consentement est décochée, l'activation est automatiquement bloquée par sécurité.
@@ -96,6 +103,7 @@ Si un exercice utilise un modèle inédit, actualisez la page (F5) pour relancer
 Le watchdog interne débloque automatiquement les états d'attente prolongés après environ 3 secondes.
 Conflit entre les modes
 Le Mode semi-auto et le Mode délai sont mutuellement exclusifs : cocher l'un désélectionne automatiquement l'autre.
+
 ⚠️ Avertissement et éthique
 
 WARNING
