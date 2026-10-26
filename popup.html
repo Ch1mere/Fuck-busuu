@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Busuu Helper</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="wrap">
+    <h1>Busuu Helper</h1>
+    <label class="row">
+      <input type="checkbox" id="consent">
+      <span>Je confirme avoir l'accord de Busuu pour automatiser</span>
+    </label>
+    <label class="row">
+      <input type="checkbox" id="enabled">
+      <span>Activer sur busuu.com</span>
+    </label>
+    <label class="row">
+      <input type="checkbox" id="semiAuto">
+      <span>Mode semi‑auto (afficher sans cliquer)</span>
+    </label>
+    <label class="row">
+      <input type="checkbox" id="delayMode">
+      <span>Mode délai (attendre 20s avant de cliquer)</span>
+    </label>
+    <label class="row">
+      <input type="checkbox" id="debug">
+      <span>Debug (overlay diagnostics)</span>
+    </label>
+    <div id="status"></div>
+  </div>
+  <script src="popup.js"></script>
+  </body>
+</html>

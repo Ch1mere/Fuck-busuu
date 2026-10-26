@@ -1,0 +1,59 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #0b0f16;
+  color: #e6edf6;
+}
+
+.wrap {
+  width: 300px;
+  padding: 14px;
+  box-sizing: border-box;
+  background: radial-gradient(120% 120% at 20% 0%, rgba(124, 92, 255, 0.22) 0%, rgba(11, 15, 22, 0) 55%),
+              radial-gradient(120% 120% at 100% 20%, rgba(0, 209, 255, 0.18) 0%, rgba(11, 15, 22, 0) 55%),
+              #0b0f16;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+h1 {
+  font-size: 16px;
+  margin: 0 0 10px;
+  letter-spacing: 0.2px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 10px 0;
+  padding: 10px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.row span {
+  font-size: 12.5px;
+  line-height: 16px;
+  color: rgba(230, 237, 246, 0.92);
+}
+
+.row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin-top: 1px;
+  accent-color: #7c5cff;
+}
+
+#status {
+  margin-top: 10px;
+  font-size: 12px;
+  color: rgba(230, 237, 246, 0.8);
+  padding: 10px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}

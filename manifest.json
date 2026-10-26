@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Busuu Helper",
+  "version": "0.1.12",
+  "description": "Lit la bonne réponse et la sélectionne, avec consentement.",
+  "permissions": ["storage", "scripting"],
+  "host_permissions": ["https://www.busuu.com/*", "*://*.busuu.com/*"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_popup": "popup.html", "default_title": "Busuu Helper" },
+  "content_scripts": [
+    {
+      "matches": ["https://www.busuu.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["inject.js"],
+      "matches": ["https://www.busuu.com/*"]
+    }
+  ]
+}
