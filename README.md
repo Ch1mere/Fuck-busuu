@@ -50,6 +50,7 @@ Verbes à particule (Phrasal verbs)	Clic synchronisé sur le verbe principal et 
 Exercice d'écriture communauté	Bascule en mode rédaction, détection du nombre de mots requis, génération de contenu structuré, saisie automatique et envoi via « Envoyer à la communauté ».
 
 🏗️ Architecture technique
+
 ├── manifest.json       # Déclaration Manifest V3 (permissions, scripts, correspondances d'URL)
 ├── background.js       # Service worker initialisant les valeurs par défaut dans le stockage
 ├── inject.js           # Script injecté dans la page (monkey-patch de fetch, XHR et WebSocket)
